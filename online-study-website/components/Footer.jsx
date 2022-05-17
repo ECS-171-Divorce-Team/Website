@@ -3,10 +3,10 @@ import styles from './styles/Footer.module.css'
 
 export default function Footer () {
     return (
-        <footer className={`container mx-3 my-3 border-top`}>
+        <footer className={`container-fluid mx-3 my-3 border-top`}>
             <h2 className={`my-4 ${styles.teamName}`}>Online Study Prediction</h2>
             <div className={`row ${styles.contactContainer}`}>
-                <ul className={`col-md-3 ${styles.leftCol}`}>
+                <ul className={`col-2 ${styles.leftCol}`}>
                     <p className={styles.contactDetails}>UC Davis Address</p>
                     <p className={styles.contactDetails}>City, State</p>
                 </ul>
