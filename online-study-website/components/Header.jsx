@@ -20,17 +20,17 @@ export default function Header () {
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <Link href='/'>
-                                <a className={cur_path == '/' ? 'nav-link active' : 'nav-link'} aria-current="page">Home</a>
+                                <a className={cur_path == '/' ? 'nav-link active text-decoration-underline' : 'nav-link'} aria-current="page">Home</a>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link href='/about'>
-                                <a className={cur_path == '/about' ? 'nav-link active' : 'nav-link'}>About</a>
+                                <a className={cur_path == '/about' ? 'nav-link active text-decoration-underline' : 'nav-link'}>About</a>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link href='/team'>
-                                <a className={cur_path == '/team' ? 'nav-link active' : 'nav-link'}>Team</a>
+                                <a className={cur_path == '/team' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Team</a>
                             </Link>
                         </li>
                     </ul>
