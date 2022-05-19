@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.css'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import Layout from '../components/Layout'
+import Head from 'next/head'
 
 function MyApp ({ Component, pageProps }) {
   useEffect(() => {
@@ -9,9 +10,11 @@ function MyApp ({ Component, pageProps }) {
   }, []);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
 }
 

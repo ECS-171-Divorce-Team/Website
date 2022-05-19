@@ -7,10 +7,10 @@ export default function Header () {
     const cur_path = useRouter().pathname;
 
     return (
-        <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light border-top mb-5">
             <div className='container-fluid justify-content-between'>
                 <Link href='/'>
-                    <a className='navbar-brand mb-0 h1'>Online Study Prediction</a>
+                    <a className={`navbar-brand mb-0 h1 ${styles.title}`}>Online Study Prediction</a>
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
