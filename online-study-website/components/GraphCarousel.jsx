@@ -31,7 +31,7 @@ export default function GraphCarousel () {
                                         graphName={elem.graphName}
                                         desc={elem.desc}
                                         imgURL={elem.imgURL} />
-                                    <div className="modal fade" id="firstModal" tabindex="-1" role="dialog" aria-labelledby="firstModalLabel" aria-hidden="true">
+                                    <div className="modal fade" id="firstModal" tabIndex="-1" role="dialog" aria-labelledby="firstModalLabel" aria-hidden="true">
                                         <div className="modal-dialog modal-fullscreen">
                                             <div className="modal-content">
                                                 <div className="modal-body">
