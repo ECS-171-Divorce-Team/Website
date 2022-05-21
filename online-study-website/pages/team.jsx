@@ -14,14 +14,14 @@ export default function Team () {
         <div className={`container-fluid ${styles.container}`}>
             {
                 rowData.map((list, index) => {
-                    return (<div className={`row justify-content-evenly ${styles.memberRow}`}>
-                        <div className='col-3' key={index}>
+                    return (<div className={`row justify-content-evenly ${styles.memberRow}`} key={index}>
+                        <div className='col-3'>
                             <MemberDesc
                                 name={list[0].name}
                                 desc={list[0].desc}
                                 profileURL={list[0].imgURL} />
                         </div>
-                        <div className='col-3' key={index + 1}>
+                        <div className='col-3'>
                             <MemberDesc
                                 name={list[1].name}
                                 desc={list[1].desc}
