@@ -33,6 +33,16 @@ export default function Header () {
                                     <a className={cur_path == '/team' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Team</a>
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link href={{
+                                    pathname: '/model',
+                                    query: {
+                                        pageName: 'Logistic Regression'
+                                    }
+                                }}>
+                                    <a className={cur_path == '/model' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Models</a>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
