@@ -10,36 +10,7 @@ export default function Home () {
       <div className='mt-5'>
         <GraphCarousel />
       </div>
-      <div className={`container-fluid ${styles.modelSection}`}>
-        <div className='row justify-content-evenly mt-5'>
-          <div className='col-4'>
-            <ProjectCard
-              imgURL={'/graphs/output.png'}
-              cardTitle='Model 1'
-              cardText='Demo text for the card component' />
-          </div>
-          <div className='col-4'>
-            <ProjectCard
-              imgURL={'/graphs/output.png'}
-              cardTitle='Model 2'
-              cardText='Demo text for the card component' />
-          </div>
-        </div>
-        <div className='row justify-content-evenly mt-5'>
-          <div className='col-4'>
-            <ProjectCard
-              imgURL={'/graphs/output.png'}
-              cardTitle='Model 1'
-              cardText='Demo text for the card component' />
-          </div>
-          <div className='col-4'>
-            <ProjectCard
-              imgURL={'/graphs/output.png'}
-              cardTitle='Model 2'
-              cardText='Demo text for the card component' />
-          </div>
-        </div>
-      </div>
+
     </div>
   )
 }
