@@ -6,15 +6,17 @@ export default function Home () {
   return (
     <div className={`container-fluid ${styles.container}`}>
       <h1 className={`display-1 ${styles.pageTitle}`}>{`Online Studying is Important blah blah blah dfkljakljdfkljalkdsfjlkasjdf`}</h1>
-      <div className={styles.projectSection}>
+      <div className={`${styles.projectSection}`}>
         {
-          models.map((elem) => {
+          models.map((elem, index) => {
             return (
-              <ProjectCard
-                cardTitle={elem.modelName}
-                cardText={elem.modelDetails}
-                imgURL={elem.modelPicPath}
-                pageLink={elem.modelPageURL} />
+              <div className='row' key={index}>
+                <ProjectCard
+                  cardTitle={elem.modelName}
+                  cardText={elem.modelDetails}
+                  imgURL={elem.modelPicPath}
+                  pageLink={elem.modelPageURL} />
+              </div>
             )
           })
         }

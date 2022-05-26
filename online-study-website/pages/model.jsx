@@ -26,15 +26,21 @@ export default function Model () {
             <div className='row'>
                 <h1 className={`display-1 col`}>{pageContent['title']}</h1>
                 <p className={`col`}>
-                    {pageContent['desc']}
+                    {pageContent['details']}
                 </p>
             </div>
             {
                 rowImgs.map((elem, index) => {
                     return (
                         <div className="row" key={index}>
-                                <img className="rounded float-start" src={elem[0]} />
-                                <img className="rounded float-end" src={elem[1]} />
+                            <div className="col rounded float-start">
+                                <Image src={elem[0]} width={1780} height={1000} />
+                            </div>
+                            <div className="col rounded float-start">
+                                <Image src={elem[1]} width={1780} height={1000} />
+                            </div>
+                                {/* <img className="rounded float-start" src={elem[0]} /> */}
+                                {/* <img className="rounded float-end" src={elem[1]} /> */}
                         </div>
                     )
                 })

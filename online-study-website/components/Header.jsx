@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import styles from './styles/Header.module.css'
 import { useRouter } from 'next/router'
+import { modelPageContents } from '../src/projectData';
+import { NavDropdown, NavLink } from 'react-bootstrap';
 
 export default function Header () {
     const cur_path = useRouter().pathname;
@@ -33,16 +35,22 @@ export default function Header () {
                                     <a className={cur_path == '/team' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Team</a>
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link href={{
-                                    pathname: '/model',
-                                    query: {
-                                        pageName: 'Logistic Regression'
-                                    }
-                                }}>
-                                    <a className={cur_path == '/model' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Models</a>
-                                </Link>
-                            </li>
+                            <NavDropdown title="Models" id="basic-nav-dropdown">
+                                {
+                                    Object.entries(modelPageContents).map(([key, value]) => {
+                                        return (
+                                            <NavDropdown.Item key={key}>
+                                                <Link href={{
+                                                    pathname: '/model',
+                                                    query: { pageName: value['title'] }
+                                                }}>
+                                                    <a>{value['title']}</a>
+                                                </Link>
+                                            </NavDropdown.Item>
+                                        )
+                                    })
+                                }
+                            </NavDropdown>
                         </ul>
                     </div>
                 </div>
