@@ -9,7 +9,7 @@ export default function Header () {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light border-top mb-5">
+            <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light border-top mb-5">
                 <div className='container-fluid justify-content-between'>
                     <Link href='/'>
                         <a className={`navbar-brand mb-0 h1 ${styles.title}`}>Online Study Prediction</a>
@@ -51,6 +51,11 @@ export default function Header () {
                                     })
                                 }
                             </NavDropdown>
+                            <li className='nav-item'>
+                                <Link href='/compare'>
+                                <a className={cur_path == '/compare' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Compare</a>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
