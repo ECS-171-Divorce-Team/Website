@@ -1,11 +1,17 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { modelPageContents } from "../src/projectData";
 
 export default function Compare () {
-    const [firstData, setFirstData] = useState({ title: "Pick model to compare" });
+    const [firstData, setFirstData] = useState({
+        title: "Pick model to compare",
+        details: "",
+        imgList: [""],
+        confusion: "",
+        report: ""
+    });
     const [secondData, setSecondData] = useState({ title: "Pick model to compare" });
     const update = (graphTitle, setFunction) => {
         setFunction(previousState => {
@@ -20,6 +26,32 @@ export default function Compare () {
         });
     }
 
+    const [firstLoad, setFirstLoad] = useState(true)
+    const [firstElem, setFirstElem] = useState({
+        'imgElem': [],
+        'confusion': [],
+        'report': []
+    })
+    //IN order to use useEffect, needs to be use on a state value
+    useEffect(() => {   //Make dictionary of elements so that it's easier to organize things later
+        if (!firstLoad) {
+            setFirstElem(() => {
+                return {
+                    'imgElem': [<Image src={firstData.imgList[0]} width={500} height={500} />],
+                    "confusion": [
+                        <div className="confusion">
+                            <Image src={firstData.confusion} width={400} height={400} />
+                        </div>],
+                    "report": [
+                        <div className="report">
+                            <Image src={firstData.report} width={400} height={400} />
+                        </div>],
+                }
+            })
+        } else {
+            setFirstLoad(false)
+        }
+    }, [firstData])
 
 
     return (
@@ -48,11 +80,21 @@ export default function Compare () {
                             }
                         </DropdownButton>
                     </Dropdown>
-                    <div className="img-fluid">
-                        <Image src={firstData.imgList[0]} width={700} height={700} />
-                        {/* Error because no element in imgList yet. THink about how to use useEffect to only load this when
-                        the state change => aka when user make a selection so that we can have some value */}
-                    </div>
+                    {
+                        firstElem['imgElem'].map((elem) => {
+                            return (elem)
+                        })
+                    }
+                    {
+                        firstElem['confusion'].map((elem) => {
+                            return (elem)
+                        })
+                    }
+                    {
+                        firstElem['report'].map((elem) => {
+                            return (elem)
+                        })
+                    }
                 </div>
                 <div className="col text-center">
                     Item 2
@@ -77,11 +119,6 @@ export default function Compare () {
                             }
                         </DropdownButton>
                     </Dropdown>
-                    <div className="img-fluid">
-                        <Image src={firstData.imgList[1]} width={700} height={700} />
-                        {/* Error because no element in imgList yet. THink about how to use useEffect to only load this when
-                        the state change => aka when user make a selection so that we can have some value */}
-                    </div>
                 </div>
             </div>
             <div className="row">
