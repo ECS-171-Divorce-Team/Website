@@ -83,9 +83,9 @@ export default function Compare () {
                             <h2 className="display-5">Graphs</h2>
                             <div className="col text-center">
                                 {
-                                    firstData.graphs.map((elem) => {
+                                    firstData.graphs.map((elem, index) => {
                                         return (
-                                            <div className="img-fluid">
+                                            <div className="img-fluid" key={index}>
                                                 <Image src={elem} width={300} height={300} />
                                             </div>
                                         )
@@ -129,9 +129,9 @@ export default function Compare () {
                             <h2 className="display-5">Graphs</h2>
                             <div className="col text-center">
                                 {
-                                    secondData.graphs.map((elem) => {
+                                    secondData.graphs.map((elem, index) => {
                                         return (
-                                            <div className="img-fluid">
+                                            <div className="img-fluid" key={index}>
                                                 <Image src={elem} width={300} height={300} />
                                             </div>
                                         )
@@ -183,9 +183,9 @@ export default function Compare () {
                             <h2 className="display-5">Graphs</h2>
                             <div className="col text-center">
                                 {
-                                    firstData.graphs.map((elem) => {
+                                    firstData.graphs.map((elem, index) => {
                                         return (
-                                            <div className="img-fluid">
+                                            <div className="img-fluid" key={index}>
                                                 <Image src={elem} width={300} height={300} />
                                             </div>
                                         )
@@ -194,9 +194,9 @@ export default function Compare () {
                             </div>
                             <div className="col text-center">
                                 {
-                                    secondData.graphs.map((elem) => {
+                                    secondData.graphs.map((elem, index) => {
                                         return (
-                                            <div className="img-fluid">
+                                            <div className="img-fluid" key={index}>
                                                 <Image src={elem} width={300} height={300} />
                                             </div>
                                         )
@@ -221,6 +221,7 @@ export default function Compare () {
                             id={`dropdown-variants-Secondary`}
                             variant={`secondary`}
                             title={`${firstData.title}`}
+                            key={0}
                         >
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
@@ -229,6 +230,7 @@ export default function Compare () {
                                             as='button'
                                             eventKey={key}
                                             onClick={() => { update(value.title, setFirstData), setFirstLoad(false) }}
+                                            key={key}
                                         >
                                             {value.title}
                                         </DropdownItem>
@@ -245,6 +247,7 @@ export default function Compare () {
                             id={`dropdown-variants-Secondary`}
                             variant={`secondary`}
                             title={`${secondData.title}`}
+                            key={1}
                         >
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
@@ -253,6 +256,7 @@ export default function Compare () {
                                             as='button'
                                             eventKey={key}
                                             onClick={() => { update(value.title, setSecondData), setSecondLoad(false) }}
+                                            key={key}
                                         >
                                             {value.title}
                                         </DropdownItem>
