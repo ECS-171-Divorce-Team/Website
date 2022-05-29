@@ -11,6 +11,8 @@ export default function Model () {
     let pageContent = modelPageContents[pageName]
     let rowImgs = []
 
+    //USE REACT HOOK STATE here to fix the pageContent doesn't recognize 'imgList' as a key in dictionary (only happen in build)
+
     for (let index = 0; index < pageContent['imgList'].length; index += 2) {
         if (index % 2 == 0) {
             if (index + 1 < pageContent['imgList'].length) {
@@ -39,8 +41,6 @@ export default function Model () {
                             <div className="col rounded float-start">
                                 <Image src={elem[1]} width={1780} height={1000} />
                             </div>
-                                {/* <img className="rounded float-start" src={elem[0]} /> */}
-                                {/* <img className="rounded float-end" src={elem[1]} /> */}
                         </div>
                     )
                 })

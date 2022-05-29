@@ -1,8 +1,6 @@
-import { computeStyles } from "@popperjs/core";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { modelPageContents } from "../src/projectData";
 
 export default function Compare () {
@@ -226,14 +224,14 @@ export default function Compare () {
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
                                     return (
-                                        <DropdownItem
+                                        <Dropdown.Item
                                             as='button'
                                             eventKey={key}
                                             onClick={() => { update(value.title, setFirstData), setFirstLoad(false) }}
                                             key={key}
                                         >
                                             {value.title}
-                                        </DropdownItem>
+                                        </Dropdown.Item>
                                     )
                                 })
                             }
@@ -252,14 +250,14 @@ export default function Compare () {
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
                                     return (
-                                        <DropdownItem
+                                        <Dropdown.Item
                                             as='button'
                                             eventKey={key}
                                             onClick={() => { update(value.title, setSecondData), setSecondLoad(false) }}
                                             key={key}
                                         >
                                             {value.title}
-                                        </DropdownItem>
+                                        </Dropdown.Item>
                                     )
                                 })
                             }
