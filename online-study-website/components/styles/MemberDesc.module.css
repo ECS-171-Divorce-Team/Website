@@ -13,3 +13,7 @@
     font-size: 25px;
     line-height: 37px;
 }
+
+.imgWrapper > span > img {
+    object-fit: cover;
+}

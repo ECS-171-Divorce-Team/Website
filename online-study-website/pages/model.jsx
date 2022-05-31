@@ -1,27 +1,51 @@
 import { useRouter } from "next/router"
 import Image from "next/image"
 import { modelPageContents } from "../src/projectData"
+import { useState } from "react"
+import { useEffect } from "react"
 
 export default function Model () {
     const router = useRouter()
     const {
         query: { pageName }
     } = router
-    let leftOverImg = ''
-    let pageContent = modelPageContents[pageName]
-    let rowImgs = []
 
     //USE REACT HOOK STATE here to fix the pageContent doesn't recognize 'imgList' as a key in dictionary (only happen in build)
 
-    for (let index = 0; index < pageContent['imgList'].length; index += 2) {
-        if (index % 2 == 0) {
-            if (index + 1 < pageContent['imgList'].length) {
-                rowImgs.push([pageContent['imgList'][index], pageContent['imgList'][index + 1]])
-            } else {
-                leftOverImg = pageContent['imgList'][index]
+    const [pageContent, setPageContent] = useState({
+        'title': '',
+        'details': '',
+        'content': ['']
+    })
+
+
+    useEffect(() => {
+        setPageContent(previousState => {
+            let numOfImgs = modelPageContents[pageName]['imgList'].length
+            let numRows = numOfImgs % 2 + 1
+            let imgRows = ['']
+            for (let i = 0; i < numRows; i++){
+                imgRows.push(
+                    <div className="row">
+                        <div className="col text-center">
+                            <Image src={modelPageContents[pageName]['imgList'][i * 2]} width={300} height={300} />
+                        </div>
+                        <div className="col text-center">
+                            <Image src={modelPageContents[pageName]['imgList'][i * 2 + 1]} width={300} height={300} />
+                        </div>
+                    </div>
+                )
             }
-        }
-    }
+
+            return {
+                ...previousState,
+                'title': modelPageContents[pageName]['title'],
+                'details': modelPageContents[pageName]['details'],
+                'content': imgRows 
+            }
+        })
+        //! Sucessfully in implementing, but the rowImgs is empty on first load, so find some workaround
+    }, [pageName])
 
     return (
         <div className={`container-fluid`}>
@@ -32,17 +56,8 @@ export default function Model () {
                 </p>
             </div>
             {
-                rowImgs.map((elem, index) => {
-                    return (
-                        <div className="row" key={index}>
-                            <div className="col rounded float-start">
-                                <Image src={elem[0]} width={1780} height={1000} />
-                            </div>
-                            <div className="col rounded float-start">
-                                <Image src={elem[1]} width={1780} height={1000} />
-                            </div>
-                        </div>
-                    )
+                pageContent['content'].map((elem) => {
+                    return (elem)
                 })
             }
         </div>

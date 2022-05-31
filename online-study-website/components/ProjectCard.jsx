@@ -9,12 +9,16 @@ export default function ProjectCard ({ imgURL, cardTitle, cardText, pageLink }) 
                 <Image src={imgURL} width={1787} height={600} />
             </div>
             <div className={`card-body container-fluid ${styles.cardBody}`}>
-                <h5 className={`card-title ${styles.cardTitle}`}>{cardTitle}</h5>
-                <p className={`card-text ${styles.cardText}`}>{cardText}</p>
-                <div className='text-end'>
-                    <Link href={pageLink}>
-                        <a className='btn btn-dark'>See Model</a>
-                    </Link>
+                <div className='row'>
+                    <div className='col'>
+                        <h5 className={`card-title ${styles.cardTitle}`} style={{ height: '50%' }}>{cardTitle}</h5>
+                        <p className={`card-text ${styles.cardText}`} style={{ height: '50%' }}>{cardText}</p>
+                    </div>
+                    <div className='col text-end' style={{height: '100%'}}>
+                        <Link href={pageLink}>
+                            <a className='btn btn-dark'>See Model</a>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
