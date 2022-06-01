@@ -3,13 +3,25 @@ export const models = [
         modelName: 'Logistic Regression',
         modelDetails: 'Created using different technique to classify',
         
-        modelPicPath: '/graphs/output.png',
+        modelPicPath: '/frontPics/logistic.jpg',
         modelPageURL: '#'
     },
     {
-        modelName: 'Logistic Regression',
+        modelName: 'Neural Network',
         modelDetails: 'Created using different technique to classify',
-        modelPicPath: '/graphs/output.png',
+        modelPicPath: '/frontPics/nn.jpg',
+        modelPageURL: '#'
+    },
+    {
+        modelName: 'Naive Gaussian Bayesian Network',
+        modelDetails: 'Created using different technique to classify',
+        modelPicPath: '/frontPics/bayes.png',
+        modelPageURL: '#'
+    },
+    {
+        modelName: 'Support Vector Machines',
+        modelDetails: 'Created using different technique to classify',
+        modelPicPath: '/frontPics/svm2.png',
         modelPageURL: '#'
     },
 ]

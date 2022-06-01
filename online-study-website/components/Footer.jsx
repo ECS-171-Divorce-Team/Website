@@ -11,9 +11,9 @@ export default function Footer () {
                     <p className={styles.contactDetails}>Davis, CA 95616</p>
                 </ul>
                 <ul className={`col ${styles.rightCol}`}>
-                    <p className={styles.contactDetails}>530-752-1011r</p>
-                    <Link href='mailto:email@example.com'>
-                        <a className={styles.contactDetails}>email@example.com</a>
+                    <p className={styles.contactDetails}>530-752-1011</p>
+                    <Link href='mailto:cyberhyperwave@gmail.com'>
+                        <a className={styles.contactDetails}>cyberhyperwave@gmail.com</a>
                     </Link>
                 </ul>
             </div>

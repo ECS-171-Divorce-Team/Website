@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.css'
 import { useEffect } from 'react'
 import Layout from '../components/Layout'
+import { SSRProvider } from 'react-bootstrap';
 
 function MyApp ({ Component, pageProps }) {
   useEffect(() => {
@@ -9,9 +10,11 @@ function MyApp ({ Component, pageProps }) {
   }, []);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <SSRProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SSRProvider>
   )
 }
 

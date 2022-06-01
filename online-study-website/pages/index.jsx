@@ -4,8 +4,8 @@ import { models } from '../src/projectData'
 
 export default function Home () {
   return (
-    <div className={`container-fluid ${styles.container}`}>
-      <h1 className={`display-1 ${styles.pageTitle}`}>{`Online Studying is Important blah blah blah dfkljakljdfkljalkdsfjlkasjdf`}</h1>
+    <div className={`container ${styles.container}`}>
+      <h1 className={`display-5 ${styles.pageTitle}`}>{`Our projects`}</h1>
       <div className={`mt-5 ${styles.projectSection}`}>
         {
           models.map((elem, index) => {
