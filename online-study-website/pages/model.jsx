@@ -32,7 +32,7 @@ export default function Model () {
                             <Image src={modelPageContents[pageName]['imgList'][i * 2]} width={600} height={600} />
                         </div>
                         <div className={`text-center ${styles.image}`}>
-                            <Image src={modelPageContents[pageName]['imgList'][i * 2 + 1]} width={600} height={600} />
+                            <Image src={modelPageContents[pageName]['imgList'][i * 2 + 1]} width={1100} height={1100} />
                         </div>
                     </>
                 )
