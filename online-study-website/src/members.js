@@ -5,7 +5,7 @@ export const Members = [
         imgURL: '/teamPics/justin.jpg'
     },
     {
-        name: "Cas Nguyen",
+        name: "Cas Rodriguez",
         desc: "Hi my name is Casimiro Rodriguez. I am from Stockton CA. I am a 3rd year CS major. I enjoy playing sports, hanging out with friends, and listing to music. fun facts: i can bench 195",
         imgURL: '/teamPics/cas.jpg'
     },

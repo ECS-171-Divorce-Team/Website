@@ -1,23 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import InputItem from "../components/InputItem";
 import { modelPageContents } from "../src/projectData";
-
-const options = {
-    "Gender": ["Male", "Female"],
-    "Home Location": ['Urban', 'Rural'],
-    "Level of Education": ['Under Graduate', 'Post Graduate', 'School'],
-    "Device type used to attend classes": ["Laptop", 'Desktop', 'Mobile'],
-    'Economic status': ['Middle Class', 'Poor', 'Rich'],
-    'Are you involved in any sports?': ['No', 'Yes'],
-    'Do elderly people monitor you?': ['Yes', 'No'],
-    'Interested in Gaming?': ['No', 'Yes'],
-    'Have separate room for studying?': ['No', 'Yes'],
-    'Engaged in group studies?': ['No', 'yes'],
-    'Average marks scored before pandemic in traditional classroom': ['91-100', '71-80', '81-90', '61-70', '31-40', '41-50', '21-30', '11-20', '51-60', '0-10'],
-    'Interested in?': ['Practical', 'Theory', 'Both'],
-    'Your level of satisfaction in Online Education': ['Average', 'Bad', 'Good'],
-}
 
 export default function Predict () {
     //Stringify the studentData to json Object then push through POST request.
@@ -46,6 +30,34 @@ export default function Predict () {
         "Interested in?": "",
         "Performance in online": "",
     })
+    const options = {
+        "Gender": ["Male", "Female"],
+        "Home Location": ['Urban', 'Rural'],
+        "Level of Education": ['Under Graduate', 'Post Graduate', 'School'],
+        "Device type used to attend classes": ["Laptop", 'Desktop', 'Mobile'],
+        'Economic status': ['Middle Class', 'Poor', 'Rich'],
+        'Are you involved in any sports?': ['No', 'Yes'],
+        'Do elderly people monitor you?': ['Yes', 'No'],
+        'Interested in Gaming?': ['No', 'Yes'],
+        'Have separate room for studying?': ['No', 'Yes'],
+        'Engaged in group studies?': ['No', 'yes'],
+        'Average marks scored before pandemic in traditional classroom': ['91-100', '71-80', '81-90', '61-70', '31-40', '41-50', '21-30', '11-20', '51-60', '0-10'],
+        'Interested in?': ['Practical', 'Theory', 'Both'],
+        'Your level of satisfaction in Online Education': ['Average', 'Bad', 'Good'],
+    }
+    const [result, setResult] = useState("")
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        console.log("Wow")
+        fetch('api/result', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify({ model: modelName, inputs: studentData })
+        }).then(response => response.json()).then(data => {
+            setResult(data.prediction)
+        })
+    }
 
     return (
         <div className='container'>
@@ -74,19 +86,19 @@ export default function Predict () {
                     }
                 </DropdownButton>
             </div>
-            <ul class="list-group list-group-flush">
+            <ul className="list-group list-group-flush">
                 {
                     Object.entries(studentData).map(([key, value]) => {
                         if (options[key]) {
                             return (
-                                <li class='list-group-item' key={key}>
+                                <li className='list-group-item' key={key}>
                                     <InputItem type={'choice'} question={key} choices={options[key]} setStateFunc={setStudentData} />
                                 </li>
                             )
                         } else {
                             return (
 
-                                <li class='list-group-item' key={key}>
+                                <li className='list-group-item' key={key}>
                                     <InputItem type={'numeric'} question={key} setStateFunc={setStudentData} />
                                 </li>
                             )
@@ -95,8 +107,21 @@ export default function Predict () {
                 }
             </ul>
             <div className="text-end mt-5">
-                <button type="button" class="btn btn-primary btn-lg">Prediction</button>
+                <input className="btn btn-primary btn-lg"
+                    type="submit"
+                    value="Submit"
+                    onClick={onSubmit}
+                />
             </div>
+            {
+                result != "" ? (
+                    <div className='result'>
+                        <h3>The Predict Level of satisfaction is: <strong>{result}</strong></h3>
+                    </div>
+                ) : (
+                    <> </>
+                )
+            }
         </div>
     )
 }
