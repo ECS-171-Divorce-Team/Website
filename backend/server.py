@@ -85,12 +85,8 @@ def result():
         inputs = data['inputs']
 
 
-        modelDict = getModel(f'./models/linear.pkl')
-        # print(modelDict['label_encoder'].classes_)
-        # print(modelDict['encoders'].categories_)
-        # print(inputs)
+        modelDict = getModel(f'./models/logistic.pkl')    # Only support logistic_prediction for now
         processed_input = processInput(inputs, modelDict['encoders'])
-        # print(processed_input)
         res = predict(modelDict, processed_input)[0]
 
     return {

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import InputItem from "../components/InputItem";
 import { modelPageContents } from "../src/projectData";
 
 export default function Predict () {
     //Stringify the studentData to json Object then push through POST request.
-    const [modelName, setModelName] = useState("Pick a model for prediction")
+    const [modelName, setModelName] = useState("Pick a model for prediction")   //Not currently supported -> Many models have too different input sizes
     const [studentData, setStudentData] = useState({
         "Gender": "",
         "Home Location": "",
@@ -49,7 +49,6 @@ export default function Predict () {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("Wow")
         fetch('api/result', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', },
@@ -62,7 +61,9 @@ export default function Predict () {
     return (
         <div className='container'>
             <h5>Fill data to predict studen satisfaction in online studying: </h5>
-            <div className="text-center">
+            <p>We use <strong>Logistic Regression</strong> for our prediction</p>
+            <p>Please only use number value for all input fields</p>
+            {/* <div className="text-center">
                 <DropdownButton
                     variant={`secondary`}
                     title={modelName}
@@ -85,7 +86,7 @@ export default function Predict () {
                         })
                     }
                 </DropdownButton>
-            </div>
+            </div> */}
             <ul className="list-group list-group-flush">
                 {
                     Object.entries(studentData).map(([key, value]) => {
