@@ -38,9 +38,9 @@ export const modelPageContents = {
     'Logistic Regression': {
         'title': 'Logistic Regression',
         'details': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet ex vel lectus aliquet porttitor. Proin sollicitudin vitae purus at cursus. Nullam suscipit ultricies lectus in efficitur. Phasellus hendrerit enim lectus. Nunc vitae eleifend metus.',
-        'imgList': ['/graphs/output.png', '/graphs/heatmap.png'],
-        'confusion': '/graphs/output.png',
-        'report': '/graphs/heatmap.png',
+        'imgList': ['/graphs/logistic matrix.svg', '/graphs/test.svg'],
+        'confusion': '/graphs/logistic matrix.svg',
+        'report': '/graphs/logistic report.png',
         'graphs': ['/graphs/output.png', '/graphs/heatmap.png']
     },
     'Neural Network': {
