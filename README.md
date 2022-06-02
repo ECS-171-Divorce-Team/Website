@@ -45,6 +45,8 @@ If there isn't any output. Please try restart your computer or re-install Node.j
     * This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
     * We also use [React-Bootstrap](https://react-bootstrap.github.io/) to increase our development speed.
 
+> Make sure you inside our repo folder from this step onward
+
 Enter this on your terminal:
 ```bash
 # Move into the front-end folder
@@ -75,17 +77,22 @@ View our project GitHub Page README.md and follow the Requirements to install al
 ```bash
 # Go to the front-end nextJS folder
 cd online-study-website
+
 npm run dev
 # or
 yarn dev
 ```
 * Then on another terminal, run the back-end server:
 ```bash
+# Go to the back-end folder
 cd backend
+
 python server.py
 # or
 python3 server.py
 ```
+
+* Leave those 2 terminals open and go to the next
 ### Viewing the Webpage
 Go to [http://localhost:3000/](http://localhost:3000/) to view our Webpage after finish all the steps above.
 

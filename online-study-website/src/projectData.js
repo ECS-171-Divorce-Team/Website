@@ -4,7 +4,7 @@ export const models = [
         modelDetails: 'Created using different technique to classify',
         
         modelPicPath: '/frontPics/logistic.jpg',
-        modelPageURL: '#'
+        modelPageURL: '/model?pageName=Logistic+Regression'
     },
     {
         modelName: 'Neural Network',

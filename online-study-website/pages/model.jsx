@@ -3,6 +3,7 @@ import Image from "next/image"
 import { modelPageContents } from "../src/projectData"
 import { useState } from "react"
 import { useEffect } from "react"
+import styles from '../styles/Models.module.css'
 
 export default function Model () {
     const router = useRouter()
@@ -24,16 +25,16 @@ export default function Model () {
             let numOfImgs = modelPageContents[pageName]['imgList'].length
             let numRows = numOfImgs % 2 + 1
             let imgRows = ['']
-            for (let i = 0; i < numRows; i++){
+            for (let i = 0; i < numRows; i++) {
                 imgRows.push(
-                    <div className="row">
-                        <div className="col text-center">
-                            <Image src={modelPageContents[pageName]['imgList'][i * 2]} width={300} height={300} />
+                    <>
+                        <div className={`text-center ${styles.image}`}>
+                            <Image src={modelPageContents[pageName]['imgList'][i * 2]} width={600} height={600} />
                         </div>
-                        <div className="col text-center">
-                            <Image src={modelPageContents[pageName]['imgList'][i * 2 + 1]} width={300} height={300} />
+                        <div className={`text-center ${styles.image}`}>
+                            <Image src={modelPageContents[pageName]['imgList'][i * 2 + 1]} width={600} height={600} />
                         </div>
-                    </div>
+                    </>
                 )
             }
 
@@ -41,7 +42,7 @@ export default function Model () {
                 ...previousState,
                 'title': modelPageContents[pageName]['title'],
                 'details': modelPageContents[pageName]['details'],
-                'content': imgRows 
+                'content': imgRows
             }
         })
         //! Sucessfully in implementing, but the rowImgs is empty on first load, so find some workaround
@@ -50,7 +51,7 @@ export default function Model () {
     return (
         <div className={`container-fluid`}>
             <div className='row'>
-                <h1 className={`display-1 col`}>{pageContent['title']}</h1>
+                <h1 className={`display-5 col`}>{pageContent['title']}</h1>
                 <p className={`col`}>
                     {pageContent['details']}
                 </p>
