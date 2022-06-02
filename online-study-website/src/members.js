@@ -27,6 +27,6 @@ export const Members = [
     {
         name: "Ali Osmani",
         desc: "Hi, my name is Ali Osmani, and I am from the Bay. I am a 3rd year Computer Science student at UC Davis. I like playing soccer and video games in my free times.",
-        imgURL: '/teamPics/Ali.png'
+        imgURL: '/teamPics/Ali.jpg'
     },
 ]
