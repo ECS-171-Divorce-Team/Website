@@ -223,16 +223,18 @@ export default function Compare () {
                         >
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
-                                    return (
-                                        <Dropdown.Item
-                                            as='button'
-                                            eventKey={key}
-                                            onClick={() => { update(value.title, setFirstData), setFirstLoad(false) }}
-                                            key={key}
-                                        >
-                                            {value.title}
-                                        </Dropdown.Item>
-                                    )
+                                    if (value.title != 'Pre-Processing') {
+                                        return (
+                                            <Dropdown.Item
+                                                as='button'
+                                                eventKey={key}
+                                                onClick={() => { update(value.title, setFirstData), setFirstLoad(false) }}
+                                                key={key}
+                                            >
+                                                {value.title}
+                                            </Dropdown.Item>
+                                        )
+                                    }
                                 })
                             }
                         </DropdownButton>
