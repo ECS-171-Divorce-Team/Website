@@ -55,7 +55,7 @@ npm install
 ```
 
 
-3. We use Flask for our backend and thus you need to have Flask install on your machine
+3. We use [Flask](https://flask.palletsprojects.com/en/2.1.x/) for our backend and thus you need to have Flask install on your machine
 
 Enter this on your terminal:
 ```bash
