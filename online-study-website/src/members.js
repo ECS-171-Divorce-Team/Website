@@ -6,12 +6,12 @@ export const Members = [
     },
     {
         name: "Cas Rodriguez",
-        desc: "Hi my name is Casimiro Rodriguez. I am from Stockton CA. I am a 3rd year CS major. I enjoy playing sports, hanging out with friends, and listing to music. fun facts: i can bench 195",
+        desc: "Hi my name is Casimiro Rodriguez but I go by Cas. I am from Stockton CA. I am a 3rd year CS major. I enjoy playing sports, hanging out with friends, and listing to music.",
         imgURL: '/teamPics/cas.jpg'
     },
     {
         name: "Khoi Nguyen",
-        desc: "Hello, my name is Justin. I am currently a 3rd year in Computer Science. My hobbies include watching shows and traveling. One interesting fact is that I have watched all the Marvel Movies in theaters",
+        desc: "Hello, my name is Khoi Nguyen. I am a 3rd year CS Major. My hobbies include watching shows and traveling. I enjoy playing badminton and hanging out with friends. Fun Fact: My Favorite coding language is Python!",
         imgURL: '/teamPics/koi.jpg'
     },
     {
@@ -20,12 +20,12 @@ export const Members = [
         imgURL: '/teamPics/andrew.jpg'
     },
     {
-        name: "Justin Guan",
+        name: "Zhantong Qiu",
         desc: "Hello, my name is Justin. I am currently a 3rd year in Computer Science. My hobbies include watching shows and traveling. One interesting fact is that I have watched all the Marvel Movies in theaters",
         imgURL: '/teamPics/idino.png'
     },
     {
-        name: "Justin Guan",
+        name: "Ali Osmani",
         desc: "Hello, my name is Justin. I am currently a 3rd year in Computer Science. My hobbies include watching shows and traveling. One interesting fact is that I have watched all the Marvel Movies in theaters",
         imgURL: '/teamPics/idino.png'
     },
