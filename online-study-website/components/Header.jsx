@@ -56,6 +56,11 @@ export default function Header () {
                                 <a className={cur_path == '/compare' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Compare</a>
                                 </Link>
                             </li>
+                            <li className='nav-item'>
+                                <Link href='/predict'>
+                                <a className={cur_path == '/predict' ? 'nav-link active text-decoration-underline' : 'nav-link'}>Predict</a>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
