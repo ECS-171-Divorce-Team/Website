@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import InputItem from "../components/InputItem";
@@ -21,7 +20,8 @@ const options = {
 }
 
 export default function Predict () {
-    const [dropTitle, setDropTitle] = useState("Pick a model for prediction")
+    //Stringify the studentData to json Object then push through POST request.
+    const [modelName, setModelName] = useState("Pick a model for prediction")
     const [studentData, setStudentData] = useState({
         "Gender": "",
         "Home Location": "",
@@ -50,46 +50,53 @@ export default function Predict () {
     return (
         <div className='container'>
             <h5>Fill data to predict studen satisfaction in online studying: </h5>
-            <DropdownButton
-                variant={`secondary`}
-                title={dropTitle}
-                key={0}
-            >
-                {
-                    Object.entries(modelPageContents).map(([key, value]) => {
-                        return (
-                            <Dropdown.Item
-                                as='button'
-                                eventKey={key}
-                                onClick={() => {
-                                    setDropTitle(value.title)
-                                }}
-                            >
-                                {value.title}
-                            </Dropdown.Item>
-                        )
-                    })
-                }
-            </DropdownButton>
+            <div className="text-center">
+                <DropdownButton
+                    variant={`secondary`}
+                    title={modelName}
+                    key={0}
+                >
+                    {
+                        Object.entries(modelPageContents).map(([key, value]) => {
+                            return (
+                                <Dropdown.Item
+                                    as='button'
+                                    eventKey={key}
+                                    onClick={() => {
+                                        setModelName(value.title)
+                                    }}
+                                    key={key}
+                                >
+                                    {value.title}
+                                </Dropdown.Item>
+                            )
+                        })
+                    }
+                </DropdownButton>
+            </div>
             <ul class="list-group list-group-flush">
                 {
                     Object.entries(studentData).map(([key, value]) => {
-                        return (
-                            <li class='list-group-item' key={key}>
-                                <InputItem type={'numeric'} question={key} setStateFunc={setStudentData} />
-                            </li>
-                        )
+                        if (options[key]) {
+                            return (
+                                <li class='list-group-item' key={key}>
+                                    <InputItem type={'choice'} question={key} choices={options[key]} setStateFunc={setStudentData} />
+                                </li>
+                            )
+                        } else {
+                            return (
+
+                                <li class='list-group-item' key={key}>
+                                    <InputItem type={'numeric'} question={key} setStateFunc={setStudentData} />
+                                </li>
+                            )
+                        }
                     })
                 }
             </ul>
+            <div className="text-end mt-5">
+                <button type="button" class="btn btn-primary btn-lg">Prediction</button>
+            </div>
         </div>
-
-
-        // <div className="form">
-        //     <form action="/api/result" method="get">
-        //         Place: <input type='text' name='place' />
-        //         <input type='submit' value='Submit' />
-        //     </form>
-        // </div>
     )
 }
