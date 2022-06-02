@@ -26,7 +26,7 @@ export const Members = [
     },
     {
         name: "Ali Osmani",
-        desc: "Hello, my name is Justin. I am currently a 3rd year in Computer Science. My hobbies include watching shows and traveling. One interesting fact is that I have watched all the Marvel Movies in theaters",
-        imgURL: '/teamPics/idino.png'
+        desc: "Hi, my name is Ali Osmani, and I am from the Bay. I am a 3rd year Computer Science student at UC Davis. I like playing soccer and video games in my free times.",
+        imgURL: '/teamPics/Ali.jpg'
     },
 ]
