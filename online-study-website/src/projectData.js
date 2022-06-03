@@ -30,10 +30,10 @@ export const modelPageContents = {
     'Pre-Processing': {
         'title': 'Pre-Processing',
         'details': '',
-        'imgList': ['/graphs/output.png', '/graphs/heatmap.png'],
-        'confusion': '/graphs/output.png',
-        'report': '/graphs/heatmap.png',
-        'graphs': ['/graphs/output.png', '/graphs/heatmap.png']
+        'imgList': ['/graphs/compareValue.png', '/graphs/heatmap.png'],
+        'confusion': '',
+        'report': '',
+        'graphs': []
     },
     'Logistic Regression': {
         'title': 'Logistic Regression',
@@ -47,10 +47,10 @@ export const modelPageContents = {
     'Neural Network': {
         'title': 'Neural Network',
         'details': 'Using Artificial Neural Network, we have the model before hyper tuning and after hyper tuning. Before hyper tuning, the accuracy is 59%. It\'s able to predict your level of satisfaction in online education with 69% if it\'s average, with 47% if it\'s bad, and 42% if it\'s good. After hyper tuning, the model\'s accuracy is 58%. The epoches reduces from 250 to 63.. It has the accuracy of 67% for average satisfaction, 51% for bad satisfaction, and 41% for good satisfaction.',
-        'imgList': ['/graphs/heatmap.png', '/graphs/output.png'],
-        'confusion': '/graphs/output.png',
-        'report': '/graphs/heatmap.png',
-        'graphs': ['/graphs/heatmap.png', '/graphs/output.png']
+        'imgList': ['/graphs/nn matrix after.png', '/graphs/nn after report.svg', '/graphs/nn_before_tuning.png', '/graphs/nn_after_tuning.png', '/graphs/nn matrix b4.png', '/graphs/nn b4 report.svg'],
+        'confusion': '/graphs/nn matrix after.png',
+        'report': '/graphs/nn after report.svg',
+        'graphs': ['/graphs/nn_before_tuning.png', '/graphs/nn_after_tuning.png']
     },
     'Naive Gaussian Bayesian Network': {
         'title': 'Naive Gaussian Bayesian Network',
