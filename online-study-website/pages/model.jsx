@@ -28,7 +28,7 @@ export default function Model () {
                 imgRows.push(
                     <div className={`text-center ${styles.image}`}>
                         <div className={styles.image}>
-                            <Image src={modelPageContents[pageName]['imgList'][i]} width={600} height={700} />
+                            <Image src={modelPageContents[pageName]['imgList'][i]} width={800} height={600} />
                         </div>
                     </div>
                 )
