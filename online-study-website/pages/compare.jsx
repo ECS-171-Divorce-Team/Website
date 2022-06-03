@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { modelPageContents } from "../src/projectData";
+import styles from '../styles/Compare.module.css'
 
 export default function Compare () {
     const [firstData, setFirstData] = useState({
@@ -11,6 +12,7 @@ export default function Compare () {
         confusion: "",
         report: "",
         graphs: [""],
+        modelPicPath: ''
     });
     const [secondData, setSecondData] = useState({
         title: "Pick model to compare",
@@ -29,19 +31,15 @@ export default function Compare () {
                 imgList: modelPageContents[graphTitle]['imgList'],
                 confusion: modelPageContents[graphTitle]['confusion'],
                 report: modelPageContents[graphTitle]['report'],
-                graphs: modelPageContents[graphTitle]['graphs']
+                graphs: modelPageContents[graphTitle]['graphs'],
+                modelPicPath: modelPageContents[graphTitle]['modelPicPath']
             }
         });
     }
 
     const [firstLoad, setFirstLoad] = useState(true)
     const [secondLoad, setSecondLoad] = useState(true)
-    // const [firstElem, setFirstElem] = useState({
-    //     'imgElem': [],
-    //     'confusion': [],
-    //     'report': [],
-    //     'graphs': []
-    // })
+
     const [compareElem, setCompareElem] = useState({
         'imgElem': [],
         'confusion': [],
@@ -56,7 +54,7 @@ export default function Compare () {
                     'imgElem': (
                         <div className="row">
                             <div className="col">
-                                <Image src={firstData.imgList[0]} width={500} height={500} />
+                                <Image src={firstData.modelPicPath} width={300} height={300} />
                             </div>
                         </div>
                     ),
@@ -72,7 +70,9 @@ export default function Compare () {
                         <div className="row border-top">
                             <h2 className="display-5">Classification Report</h2>
                             <div className="col text-center">
-                                <Image src={firstData.report} width={400} height={400} />
+                                <div className={styles.imgWrapper}>
+                                    <Image src={firstData.report} width={1100} height={400} />
+                                </div>
                             </div>
                         </div>
                     ),
@@ -95,7 +95,7 @@ export default function Compare () {
                 }
             })
         }
-        if (!secondLoad && firstLoad) {
+        if (firstLoad && !secondLoad) {
             setCompareElem(() => {
                 return {
                     'imgElem': (
@@ -118,7 +118,9 @@ export default function Compare () {
                         <div className="row border-top">
                             <h2 className="display-5">Classification Report</h2>
                             <div className="col text-center">
-                                <Image src={secondData.report} width={400} height={400} />
+                                <div className={styles.imgWrapper}>
+                                    <Image src={secondData.report} width={1100} height={400} />
+                                </div>
                             </div>
                         </div>
                     ),
@@ -158,10 +160,10 @@ export default function Compare () {
                         <div className="row border-top">
                             <h2 className="display-5">Confusion Matrix</h2>
                             <div className="col text-center">
-                                <Image src={firstData.confusion} width={400} height={400} />
+                                <Image src={firstData.confusion} width={1100} height={400} />
                             </div>
                             <div className="col text-center">
-                                <Image src={secondData.confusion} width={400} height={400} />
+                                <Image src={secondData.confusion} width={1100} height={400} />
                             </div>
                         </div>
                     ),
@@ -169,10 +171,14 @@ export default function Compare () {
                         <div className="row border-top">
                             <h2 className="display-5">Classification Report</h2>
                             <div className="col text-center">
-                                <Image src={firstData.report} width={400} height={400} />
+                                <div className={styles.imgWrapper}>
+                                    <Image src={firstData.report} width={1100} height={400} />
+                                </div>
                             </div>
                             <div className="col text-center">
-                                <Image src={secondData.report} width={400} height={400} />
+                                <div className={styles.imgWrapper}>
+                                    <Image src={secondData.report} width={1100} height={400} />
+                                </div>
                             </div>
                         </div>
                     ),
@@ -251,25 +257,24 @@ export default function Compare () {
                         >
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
-                                    return (
-                                        <Dropdown.Item
-                                            as='button'
-                                            eventKey={key}
-                                            onClick={() => { update(value.title, setSecondData), setSecondLoad(false) }}
-                                            key={key}
-                                        >
-                                            {value.title}
-                                        </Dropdown.Item>
-                                    )
+                                    if (value.title != 'Pre-Processing') {
+                                        return (
+                                            <Dropdown.Item
+                                                as='button'
+                                                eventKey={key}
+                                                onClick={() => { update(value.title, setSecondData), setSecondLoad(false) }}
+                                                key={key}
+                                            >
+                                                {value.title}
+                                            </Dropdown.Item>
+                                        )
+                                    }
                                 })
                             }
                         </DropdownButton>
                     </Dropdown>
                 </div>
             </div>
-            {
-                compareElem['imgElem']
-            }
             {
                 compareElem['confusion']
             }
