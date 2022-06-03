@@ -1,5 +1,4 @@
-.image > span > img{
-    margin-top: 7%;
+.imgWrapper > span > img {
     object-fit: cover;
     object-position: top;
 }

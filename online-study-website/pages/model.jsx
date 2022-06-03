@@ -23,18 +23,14 @@ export default function Model () {
     useEffect(() => {
         setPageContent(previousState => {
             let numOfImgs = modelPageContents[pageName]['imgList'].length
-            let numRows = numOfImgs % 2 + 1
             let imgRows = ['']
-            for (let i = 0; i < numRows; i++) {
+            for (let i = 0; i < numOfImgs; i++) {
                 imgRows.push(
-                    <>
-                        <div className={`text-center ${styles.image}`}>
-                            <Image src={modelPageContents[pageName]['imgList'][i * 2]} width={600} height={600} />
+                    <div className={`text-center ${styles.image}`}>
+                        <div className={styles.image}>
+                            <Image src={modelPageContents[pageName]['imgList'][i]} width={600} height={700} />
                         </div>
-                        <div className={`text-center ${styles.image}`}>
-                            <Image src={modelPageContents[pageName]['imgList'][i * 2 + 1]} width={1100} height={1100} />
-                        </div>
-                    </>
+                    </div>
                 )
             }
 
@@ -45,7 +41,6 @@ export default function Model () {
                 'content': imgRows
             }
         })
-        //! Sucessfully in implementing, but the rowImgs is empty on first load, so find some workaround
     }, [pageName])
 
     return (
