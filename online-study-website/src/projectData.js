@@ -29,7 +29,7 @@ export const models = [
 export const modelPageContents = {
     'Pre-Processing': {
         'title': 'Pre-Processing',
-        'details': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet ex vel lectus aliquet porttitor. Proin sollicitudin vitae purus at cursus. Nullam suscipit ultricies lectus in efficitur. Phasellus hendrerit enim lectus. Nunc vitae eleifend metus.',
+        'details': '',
         'imgList': ['/graphs/output.png', '/graphs/heatmap.png'],
         'confusion': '/graphs/output.png',
         'report': '/graphs/heatmap.png',
@@ -45,7 +45,7 @@ export const modelPageContents = {
     },
     'Neural Network': {
         'title': 'Neural Network',
-        'details': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet ex vel lectus aliquet porttitor. Proin sollicitudin vitae purus at cursus. Nullam suscipit ultricies lectus in efficitur. Phasellus hendrerit enim lectus. Nunc vitae eleifend metus.',
+        'details': 'Using Artificial Neural Network, we have the model before hyper tuning and after hyper tuning. Before hyper tuning, the accuracy is 59%. It\'s able to predict your level of satisfaction in online education with 69% if it\'s average, with 47% if it\'s bad, and 42% if it\'s good. After hyper tuning, the model\'s accuracy is 58%. The epoches reduces from 250 to 63.. It has the accuracy of 67% for average satisfaction, 51% for bad satisfaction, and 41% for good satisfaction.',
         'imgList': ['/graphs/heatmap.png', '/graphs/output.png'],
         'confusion': '/graphs/output.png',
         'report': '/graphs/heatmap.png',
