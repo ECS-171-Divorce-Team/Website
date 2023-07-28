@@ -49,10 +49,10 @@ export default function Predict () {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        fetch('api/result', {
+        fetch('http://127.0.0.1:5001/fir-function-demo-b59df/us-central1/addmessage', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', },
-            body: JSON.stringify({ model: modelName, inputs: studentData })
+            body: JSON.stringify(studentData)
         }).then(response => response.json()).then(data => {
             setResult(data.prediction)
         })
