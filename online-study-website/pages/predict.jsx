@@ -54,6 +54,8 @@ export default function Predict () {
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(studentData)
         }).then(response => response.json()).then(data => {
+            const obj = JSON.stringify(data)
+            console.log(`This is the result: ${obj}`)
             setResult(data.prediction)
         })
     }
@@ -63,30 +65,6 @@ export default function Predict () {
             <h5>Fill data to predict studen satisfaction in online studying: </h5>
             <p>We use <strong>Logistic Regression</strong> for our prediction</p>
             <p>Please only use number value for all input fields</p>
-            {/* <div className="text-center">
-                <DropdownButton
-                    variant={`secondary`}
-                    title={modelName}
-                    key={0}
-                >
-                    {
-                        Object.entries(modelPageContents).map(([key, value]) => {
-                            return (
-                                <Dropdown.Item
-                                    as='button'
-                                    eventKey={key}
-                                    onClick={() => {
-                                        setModelName(value.title)
-                                    }}
-                                    key={key}
-                                >
-                                    {value.title}
-                                </Dropdown.Item>
-                            )
-                        })
-                    }
-                </DropdownButton>
-            </div> */}
             <ul className="list-group list-group-flush">
                 {
                     Object.entries(studentData).map(([key, value]) => {
