@@ -49,7 +49,16 @@ export default function Predict () {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        fetch('https://addmessage-njvgf2vdiq-uc.a.run.app', {
+        // fetch('http://127.0.0.1:5001/online-learning-experience/us-central1/prediction', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json', },
+        //     body: JSON.stringify(studentData)
+        // }).then(response => response.json()).then(data => {
+        //     const obj = JSON.stringify(data)
+        //     console.log(`This is the result: ${obj}`)
+        //     setResult(data.prediction)
+        // })
+        fetch('https://prediction-njvgf2vdiq-uc.a.run.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(studentData)
