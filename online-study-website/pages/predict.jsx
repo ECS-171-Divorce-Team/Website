@@ -49,16 +49,7 @@ export default function Predict () {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        fetch('http://127.0.0.1:5001/fir-function-demo-b59df/us-central1/prediction', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', },
-            body: JSON.stringify(studentData)
-        }).then(response => response.json()).then(data => {
-            const obj = JSON.stringify(data)
-            console.log(`This is the result: ${obj}`)
-            setResult(data.prediction)
-        })
-        // fetch('https://prediction-njvgf2vdiq-uc.a.run.app', {
+        // fetch('http://127.0.0.1:5001/fir-function-demo-b59df/us-central1/prediction', {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json', },
         //     body: JSON.stringify(studentData)
@@ -67,6 +58,15 @@ export default function Predict () {
         //     console.log(`This is the result: ${obj}`)
         //     setResult(data.prediction)
         // })
+        fetch('https://prediction-rbp5lctcra-uc.a.run.app', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify(studentData)
+        }).then(response => response.json()).then(data => {
+            const obj = JSON.stringify(data)
+            console.log(`This is the result: ${obj}`)
+            setResult(data.prediction)
+        })
     }
 
     return (
