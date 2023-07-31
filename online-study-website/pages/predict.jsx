@@ -49,7 +49,7 @@ export default function Predict () {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        fetch('https://cloudrun-online-exp-pred-rbp5lctcra-uc.a.run.app', {
+        fetch('https://cloudrun-online-exp-pred-rbp5lctcra-uc.a.run.app/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(studentData)
