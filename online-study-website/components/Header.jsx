@@ -34,13 +34,6 @@ export default function Header () {
                                 About
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link
-                                href='/team'
-                                className={cur_path == '/team' ? 'nav-link active text-decoration-underline' : 'nav-link'}>
-                                Team
-                            </Link>
-                        </li>
                         <NavDropdown title="Models" id="basic-nav-dropdown">
                             {
                                 Object.entries(modelPageContents).map(([key, value]) => {
