@@ -12,11 +12,11 @@ export default function Footer () {
                 </ul>
                 <ul className={`col ${styles.rightCol}`}>
                     <p className={styles.contactDetails}>530-752-1011</p>
-                    <Link href='mailto:cyberhyperwave@gmail.com'>
-                        <a className={styles.contactDetails}>cyberhyperwave@gmail.com</a>
+                    <Link href='mailto:cyberhyperwave@gmail.com' className={styles.contactDetails}>
+                        cyberhyperwave@gmail.com
                     </Link>
                 </ul>
             </div>
         </footer>
-    )
+    );
 }
